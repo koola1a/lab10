@@ -2,7 +2,7 @@
 session_start();
 require_once("settings.php");
 
-// Check if user is logged in
+
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
-// Fetch user data from DB
+
 $username_esc = mysqli_real_escape_string($conn, $username);
 $sql = "SELECT username, email FROM Users WHERE username='$username_esc'";
 $result = mysqli_query($conn, $sql);
@@ -18,7 +18,6 @@ $result = mysqli_query($conn, $sql);
 if ($result && mysqli_num_rows($result) === 1) {
     $user = mysqli_fetch_assoc($result);
 } else {
-    // Something wrong - logout user
     session_destroy();
     header("Location: login.php");
     exit();
