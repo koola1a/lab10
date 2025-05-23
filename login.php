@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
 
-    $sql = "SELECT * FROM User WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) === 1) {
