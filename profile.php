@@ -12,7 +12,7 @@ $username = $_SESSION['username'];
 
 
 $username_esc = mysqli_real_escape_string($conn, $username);
-$sql = "SELECT username, email FROM Users WHERE username='$username_esc'";
+$sql = "SELECT username, email FROM user WHERE username='$username_esc'";
 $result = mysqli_query($conn, $sql);
 
 if ($result && mysqli_num_rows($result) === 1) {
