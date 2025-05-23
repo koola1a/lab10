@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username_esc = mysqli_real_escape_string($conn, $username);
     $email_esc = mysqli_real_escape_string($conn, $new_email);
 
-    $sql = "UPDATE Users SET email='$email_esc' WHERE username='$username_esc'";
+    $sql = "UPDATE users SET email='$email_esc' WHERE username='$username_esc'";
 
     if (mysqli_query($conn, $sql)) {
         header("Location: profile.php");
